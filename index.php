@@ -15,8 +15,14 @@
 		<header>
 		</header>
 
+		<div class="suport">
+			<form>
+				<input type="text" placeholder="Digite o endereço para entrega ..." />
+				<input type="submit" value="Enviar" />
+			</form>
+		</div>
+
 		<div id="map">
-			HERE THE MAP
 		</div>
 	</body>
 </html>
@@ -33,8 +39,8 @@
 	var map;
       	function initMap() {
         	map = new google.maps.Map(document.getElementById('map'), {
-          	center: {lat: -34.397, lng: 150.644},
-          	zoom: 8
+          	center: {lat: -31.7747258, lng: -52.4140721},
+          	zoom: 10
         });
       }
 </script>
