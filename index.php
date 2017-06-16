@@ -25,10 +25,11 @@
 		</header>
 
 		
-		<form>
+		<form class="main-form">
 			<span>Bem vindo a 220 bike entregas!</span>
-			<input type="text" placeholder="Digite o endereço para entrega ..." />
+			<input type="text" class="address" placeholder="Digite o endereço para entrega ..." />
 			<input type="submit" value="Enviar" />
+			<span class="error-message">Mensagem de erro</span>
 		</form>
 		
 
@@ -42,9 +43,18 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		//alert('test');
-	});
+		$('.main-form').submit(function(e){
+			var address = $('.address').val();
 
+			if (address == ''){
+				$('.error-message').text('Digite um endereço!');
+				$('.error-message').show();
+				setTimeout(function(){ $('.error-message').hide(); }, 3000);
+			}
+
+			e.preventDefault();
+		});
+	});
 
 	var map;
       	function initMap() {

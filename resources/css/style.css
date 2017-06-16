@@ -40,7 +40,7 @@ header .suport-menu ul  li {
 header .suport-menu ul li a {
     padding: 4% 3%;
     display: inline-block;
-    color: white;
+    color: #00FFFF;
     font-size: 24px;
     text-decoration: none;
     font-family: 'Roboto Condensed', sans-serif;
@@ -48,7 +48,7 @@ header .suport-menu ul li a {
 
 header .suport-menu ul li a:hover {
 	font-size: 28px;
-	color: #00FFFF;
+	color: white;
 }
 
 #map{
@@ -107,4 +107,13 @@ form input[type="submit"]{
 	color: black;
 	font-size: 22px;
 	text-align: center;
-}*/
+}
+
+form .error-message{
+	color: red;
+	float: left;
+	font-size: 24px;
+	display: none;
+	font-family: 'Roboto Condensed', sans-serif;
+
+}
