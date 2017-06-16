@@ -43,6 +43,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+
 		$('.main-form').submit(function(e){
 			var address = $('.address').val();
 
@@ -50,11 +51,41 @@
 				$('.error-message').text('Digite um endereço!');
 				$('.error-message').show();
 				setTimeout(function(){ $('.error-message').hide(); }, 3000);
+				return false;
 			}
+
+
+			$('.main-form').hide();
+
+			if (window.navigator && window.navigator.geolocation) {
+			   var geolocation = window.navigator.geolocation;
+			   geolocation.getCurrentPosition(sucesso, erro);
+			  } else {
+			     alert('Geolocalização não suportada em seu navegador.')
+			  }
+			  function erro(error){
+			    console.log(error)
+			  }
+			  function sucesso(posicao){
+
+			    var location = [];
+
+			    location.lat =  posicao.coords.latitude;
+			    location.log = posicao.coords.longitude;
+
+			    // var latitude = posicao.coords.latitude;
+			    // var longitude = posicao.coords.longitude;
+
+			    console.log(location);
+
+			  }
+			  
+
 
 			e.preventDefault();
 		});
 	});
+
 
 	var map;
       	function initMap() {
