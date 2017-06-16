@@ -4,6 +4,7 @@
 		<title>220 Bike entregas</title>
 
 		<link rel="stylesheet" href="resources/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
 	</head>
 	<body>
@@ -13,14 +14,23 @@
 		?>
 
 		<header>
+			<div class="suport-menu">
+				<img src="resources/img/logo.jpg" />
+				<ul>
+					<li><a href="#">Quem somos</a></li>
+					<li><a href="#">Equipe</a></li>
+					<li><a href="#">Contato</a></li>
+				</ul>
+			</div>
 		</header>
 
-		<div class="suport">
-			<form>
-				<input type="text" placeholder="Digite o endereço para entrega ..." />
-				<input type="submit" value="Enviar" />
-			</form>
-		</div>
+		
+		<form>
+			<span>Bem vindo a 220 bike entregas!</span>
+			<input type="text" placeholder="Digite o endereço para entrega ..." />
+			<input type="submit" value="Enviar" />
+		</form>
+		
 
 		<div id="map">
 		</div>
