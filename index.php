@@ -45,7 +45,10 @@
 	$(document).ready(function(){
 
 		$('.main-form').submit(function(e){
+
 			var address = $('.address').val();
+			var destLocation = null;
+			var myLocation = [];
 
 			if (address == ''){
 				$('.error-message').text('Digite um endereço!');
@@ -60,30 +63,32 @@
 			if (window.navigator && window.navigator.geolocation) {
 			   var geolocation = window.navigator.geolocation;
 			   geolocation.getCurrentPosition(sucesso, erro);
-			  } else {
-			     alert('Geolocalização não suportada em seu navegador.')
-			  }
-			  function erro(error){
-			    console.log(error)
-			  }
-			  function sucesso(posicao){
+		  	} else {
+		    	alert('Geolocalização não suportada em seu navegador.')
+		  	}
+		  	function erro(error){
+		    	console.log(error)
+		  	}
+		  	function sucesso(posicao){
 
-			    var location = [];
+		   		myLocation.lat =  posicao.coords.latitude;
+		    	myLocation.log = posicao.coords.longitude;
 
-			    location.lat =  posicao.coords.latitude;
-			    location.log = posicao.coords.longitude;
+			}
 
-			    // var latitude = posicao.coords.latitude;
-			    // var longitude = posicao.coords.longitude;
+			var url = 'http://localhost/bike_corrier/functions.php';
+			var coords = null;
+			$.get( url, { action: "get_location", address: "2pm" } )
+			  .done(function( data ) {
+			    destLocation = data;
+			});
 
-			    console.log(location);
-
-			  }
-			  
-
+			console.log(destLocation);
 
 			e.preventDefault();
 		});
+
+
 	});
 
 
